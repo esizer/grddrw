@@ -1,0 +1,35 @@
+package components
+
+import "fmt"
+
+func getTitle(pageTitle string) string {
+	siteTitle := "GrdDrw"
+
+	if pageTitle != "" {
+		return fmt.Sprintf("%s | %s", pageTitle, siteTitle)
+	}
+
+	return siteTitle
+}
+
+templ Layout(title string) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<title>{ getTitle(title) }</title>
+			<link rel="preconnect" href="https://fonts.googleapis.com"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+			<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"/>
+			<link rel="stylesheet" href="/static/css/styles.css"/>
+		</head>
+		<body class="font-sans bg-stone-50 text-stone-950">
+			@Header()
+			<main>
+				{ children... }
+			</main>
+			@Footer()
+		</body>
+	</html>
+}

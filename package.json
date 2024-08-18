@@ -1,0 +1,17 @@
+{
+  "name": "grddrw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tailwind": "tailwindcss -i ./src/css/input.css -o ./assets/static/css/styles.css",
+    "tailwind:build": "pnpm tailwind --minify",
+    "tailwind:watch": "pnpm tailwind --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.10"
+  }
+}
