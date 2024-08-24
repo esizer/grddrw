@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tailwind": "tailwindcss -i ./src/css/input.css -o ./assets/static/css/styles.css",
+    "tailwind": "tailwindcss -i ./css/input.css -o ./assets/static/css/styles.css",
     "tailwind:build": "pnpm tailwind --minify",
-    "tailwind:watch": "pnpm tailwind --watch"
+    "watch:tailwind": "pnpm tailwind --watch",
+    "watch:server": "make dev"
   },
   "keywords": [],
   "author": "",

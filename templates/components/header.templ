@@ -1,7 +1,25 @@
 package components
 
 templ Header() {
-	<header class="py-4 px-4 mb-3 bg-white">
-		<p>GrdDrw</p>
+	<header class="mb-3 py-3 bg-white shadow">
+		<div class="max-w-screen-md flex justify-between mx-auto">
+			<p>GrdDrw</p>
+			<nav aria-label="Main nav">
+				<ul class="flex items-center gap-2 justify-end">
+					<li>
+						@Link(LinkProps{
+							href:  "/",
+							label: "Home",
+						})
+					</li>
+					<li>
+						@Link(LinkProps{
+							href:  "/grid",
+							label: "Grid",
+						})
+					</li>
+				</ul>
+			</nav>
+		</div>
 	</header>
 }

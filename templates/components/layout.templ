@@ -22,12 +22,15 @@ templ Layout(title string) {
 			<link rel="preconnect" href="https://fonts.googleapis.com"/>
 			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 			<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"/>
+			<script src="https://unpkg.com/htmx.org@2.0.2/dist/htmx.js" integrity="sha384-yZq+5izaUBKcRgFbxgkRYwpHhHHCpp5nseXp0MEQ1A4MTWVMnqkmcuFez8x5qfxr" crossorigin="anonymous"></script>
+			<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 			<link rel="stylesheet" href="/static/css/styles.css"/>
 		</head>
 		<body class="font-sans bg-stone-50 text-stone-950">
 			@Header()
 			<main>
 				{ children... }
+				<div id="errors" class="fix bottom-2 right-2 z-50"></div>
 			</main>
 			@Footer()
 		</body>

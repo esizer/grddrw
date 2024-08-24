@@ -1,0 +1,11 @@
+package components
+
+templ Error(msg string) {
+	<div
+		hx-trigger="load"
+		hx-swap="outerHTML settle:500ms"
+		class="shadow bg-red-50 border border-red-500 text-red-800 p-3"
+	>
+		{ msg }
+	</div>
+}

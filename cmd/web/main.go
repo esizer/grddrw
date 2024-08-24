@@ -4,6 +4,8 @@ import (
 	"flag"
 	"log/slog"
 	"os"
+
+	"github.com/esizer/grddrw/data"
 )
 
 type config struct {
@@ -12,6 +14,7 @@ type config struct {
 
 type application struct {
 	config config
+	grid   data.Grid
 }
 
 func main() {
@@ -21,8 +24,11 @@ func main() {
 	flag.Parse()
 	logger := slog.New(slog.NewTextHandler(os.Stdout, nil))
 
+	g := data.NewGrid()
+
 	app := &application{
 		config: cfg,
+		grid:   g,
 	}
 
 	logger.Info("Starting server", "addr", ":3000")

@@ -25,4 +25,8 @@ dev/assets:
 		--main_only "true"
 
 dev:
-	make -j4 dev/templ dev/server dev/assets
+	make -j3 dev/templ dev/server dev/assets
+
+watch:
+	pnpm run "/^watch:.*/"
+

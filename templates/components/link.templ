@@ -1,0 +1,16 @@
+package components
+
+type LinkProps struct {
+	href  string
+	label string
+}
+
+templ Link(props LinkProps) {
+	<a
+		hx-boost
+		href={ templ.SafeURL(props.href) }
+		class="text-fuchsia-500 underline hover:text-fuchsia-700 hover:no-underline"
+	>
+		{ props.label }
+	</a>
+}

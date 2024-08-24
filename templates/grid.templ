@@ -1,0 +1,53 @@
+package templates
+
+import (
+	"github.com/esizer/grddrw/data"
+	"github.com/esizer/grddrw/templates/components"
+)
+
+templ Grid(g data.Grid) {
+	@components.Layout("Grid") {
+		<script>
+	document.addEventListener("alpine:init", () => {
+
+		const colors = [
+			{
+				key: "red",
+				class: "bg-red-500",
+				rgb: {r: 255, b: 0, g: 0},
+			},
+			{
+				key: "green",
+				class: "bg-green-500",
+				rgb: {r: 0, g: 255, b: 0},
+			},
+			{
+				key: "blue",
+				class: "bg-blue-500",
+				rgb: {r: 0, g: 0, b: 255},
+			},
+		];
+
+		Alpine.data("palette", () => ({
+			selected: colors[0],
+			colors: colors,
+
+			pick(key) {
+				const color = colors.find((color) => color.key === key);
+				this.selected = color;
+			},
+		}));
+	});
+</script>
+		<form>
+			<div x-data="palette" class="mx-auto my-4 p-4 w-full max-w-screen-md flex flex-col gap-4 items-center">
+				<div class="grid grid-cols-16 auto-rows-fr border-collapse bg-slate-600 border border-slate-600 shadow w-full">
+					for _, p := range g.Pixels {
+						@components.Pixel(p)
+					}
+				</div>
+				@components.Palette()
+			</div>
+		</form>
+	}
+}
