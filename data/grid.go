@@ -8,6 +8,7 @@ type Pixel struct {
 }
 
 type Grid struct {
+	Id     int
 	Pixels [256]*Pixel
 }
 
@@ -31,6 +32,7 @@ func NewGrid() Grid {
 	}
 
 	return Grid{
+		Id:     1,
 		Pixels: pxs,
 	}
 }

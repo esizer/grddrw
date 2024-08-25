@@ -7,7 +7,8 @@ import (
 
 	"github.com/a-h/templ"
 	"github.com/esizer/grddrw/data"
-	"github.com/esizer/grddrw/templates"
+	"github.com/esizer/grddrw/templates/components"
+	"github.com/esizer/grddrw/toast"
 )
 
 func trimHash(h string) string {
@@ -37,11 +38,18 @@ func (app *application) paintHandler(w http.ResponseWriter, r *http.Request) {
 	hex := r.Form.Get("color")
 	pixel, err := hex2RGB(hex)
 	if err != nil {
-		t := Danger("Could not read red channel")
-		t.Write(w, r, http.StatusBadRequest)
+		t := toast.Danger("could not read hex")
+		t.Serve(w, r, http.StatusBadRequest)
 		return
 	}
 
-	templ.Handler(templates.Pixel(&pixel)).ServeHTTP(w, r)
+	templ.Handler(components.Pixel(&pixel)).ServeHTTP(w, r)
+	return
+}
+
+func (app *application) clearHandler(w http.ResponseWriter, r *http.Request) {
+	grid := data.NewGrid()
+
+	templ.Handler(components.Grid(grid)).ServeHTTP(w, r)
 	return
 }

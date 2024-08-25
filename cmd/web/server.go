@@ -23,8 +23,10 @@ func (app *application) serve() error {
 
 	r.Handle("/static/*", http.StripPrefix("/", app.devDisableCache(http.FileServerFS(assets.Files))))
 	r.Get("/", templ.Handler(templates.Home()).ServeHTTP)
-	r.Get("/grid", templ.Handler(templates.Grid(app.grid)).ServeHTTP)
+	r.Get("/grid", templ.Handler(templates.DrawPage(app.grid, app.palette)).ServeHTTP)
 	r.Put("/pixel", app.paintHandler)
+	r.Put("/clear", app.clearHandler)
+	r.Post("/add-color", app.addColorHandler)
 
 	srv := &http.Server{
 		Addr:         fmt.Sprintf(":%d", 3000),

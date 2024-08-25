@@ -27,13 +27,14 @@ templ Layout(title string) {
 			<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 			<link rel="stylesheet" href="/static/css/styles.css"/>
 		</head>
-		<body class="font-sans bg-stone-50 text-stone-950">
+		<body class="font-sans bg-stone-50 text-stone-950 min-h-screen flex flex-col justify-between">
 			@Header()
 			<main>
 				{ children... }
-				<div id="errors" class="fix bottom-2 right-2 z-50"></div>
+				@ToastContainer()
 			</main>
 			@Footer()
+			<script defer src="/static/js/index.js"></script>
 		</body>
 	</html>
 }

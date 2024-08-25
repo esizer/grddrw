@@ -1,25 +1,27 @@
 package components
 
 templ Header() {
-	<header class="mb-3 py-3 bg-white shadow">
-		<div class="max-w-screen-md flex justify-between mx-auto">
-			<p>GrdDrw</p>
-			<nav aria-label="Main nav">
-				<ul class="flex items-center gap-2 justify-end">
-					<li>
-						@Link(LinkProps{
-							href:  "/",
-							label: "Home",
-						})
-					</li>
-					<li>
-						@Link(LinkProps{
-							href:  "/grid",
-							label: "Grid",
-						})
-					</li>
-				</ul>
-			</nav>
-		</div>
+	<header class="mb-6 py-4 bg-white border-b-2 border-b-slate-900 shadow-header">
+		@Container() {
+			<div class="flex items-center justify-between">
+				<p>GrdDrw</p>
+				<nav aria-label="Main nav">
+					<ul class="flex items-center gap-2 justify-end">
+						<li>
+							@Link(LinkProps{
+								href:  "/",
+								label: "Home",
+							})
+						</li>
+						<li>
+							@Link(LinkProps{
+								href:  "/grid",
+								label: "Grid",
+							})
+						</li>
+					</ul>
+				</nav>
+			</div>
+		}
 	</header>
 }

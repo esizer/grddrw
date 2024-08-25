@@ -12,12 +12,13 @@ func currentYear() string {
 }
 
 templ Footer() {
-	<footer class="text-center">
+	<footer class="text-center py-4 mt-6 bg-white border-t-2 border-t-slate-900 shadow-footer">
 		<p>
-			&copy; { currentYear() } GrdDrw, 
-			<a href="https://github.com/esizer" class="text-fuchsia-500 underline hover:text-fuchsia-900 hover:no-underline">
-				{ "@esizer" }
-			</a>
+			&copy;{ currentYear() } GrdDrw 
+			@Link(LinkProps{
+				href:  "https://github.com/esizer",
+				label: "@esizer",
+			})
 		</p>
 	</footer>
 }

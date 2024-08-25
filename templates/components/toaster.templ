@@ -1,0 +1,11 @@
+package components
+
+templ ToastContainer() {
+	<div id="toast-container" class="fixed bottom-2 right-2 z-50 max-w-screen-sm flex flex-col gap-2"></div>
+	<script type="text/javascript">
+		document.body.addEventListener("toast", function (e) {
+			const toast = new Toast(e.detail.Level, e.detail.Message);
+			toast.pop();
+		});
+	</script>
+}

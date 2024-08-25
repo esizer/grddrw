@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tailwind": "tailwindcss -i ./css/input.css -o ./assets/static/css/styles.css",
+    "es": "esbuild ./src/js/index.js --bundle --outfile=./assets/static/js/index.js --minify",
+    "tailwind": "tailwindcss -i ./src/css/input.css -o ./assets/static/css/styles.css",
     "tailwind:build": "pnpm tailwind --minify",
+    "watch:es": "esbuild ./src/js/index.js --bundle --outfile=./assets/static/js/index.js --watch",
     "watch:tailwind": "pnpm tailwind --watch",
     "watch:server": "make dev"
   },
@@ -13,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "esbuild": "0.23.1",
     "tailwindcss": "^3.4.10"
   }
 }

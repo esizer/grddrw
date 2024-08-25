@@ -13,8 +13,9 @@ type config struct {
 }
 
 type application struct {
-	config config
-	grid   data.Grid
+	config  config
+	grid    data.Grid
+	palette *data.Palette
 }
 
 func main() {
@@ -27,8 +28,9 @@ func main() {
 	g := data.NewGrid()
 
 	app := &application{
-		config: cfg,
-		grid:   g,
+		config:  cfg,
+		grid:    g,
+		palette: &data.Palette{},
 	}
 
 	logger.Info("Starting server", "addr", ":3000")

@@ -1,12 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./templates/**/*.templ"],
+  content: ["./templates/**/*.{templ,go}", "./src/js/**/*.js"],
   theme: {
+    container: {
+      center: true,
+    },
     fontFamily: {
       sans: ["Inter", "sans-serif"],
-      shadow: {
-        DEFAULT: "2rem 2rem 0 0 rgba(0, 0, 0, 0.7)",
-      },
+    },
+    boxShadow: {
+      DEFAULT: "0.25rem 0.25rem 0 0 rgba(0, 0, 0, 0.6)",
+      none: "box-shadow: 0 0 rgba(0,0,0,0)",
+      header: "0 0.25rem 0 0 rgba(0,0,0,0.6)",
+      footer: "0 -0.25rem 0 0 rgba(0,0,0,0.6)",
     },
     extend: {
       gridTemplateColumns: {

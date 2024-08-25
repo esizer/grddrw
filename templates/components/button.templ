@@ -1,0 +1,47 @@
+package components
+
+import "strings"
+
+type Variant int
+
+const (
+	Primary Variant = iota + 1
+	Secondary
+)
+
+type ButtonProps struct {
+	variant Variant
+	attrs   templ.Attributes
+}
+
+func focus() string {
+	classNames := []string{
+		"focus-visible:bg-fuschia-500 focus-visible:shadow-none",
+		"focus-visible:outline-2 focus-visible:outline-slate-900 focus-visible:outline-offset-2 focus-visible:outline-dashed",
+	}
+
+	return strings.Join(classNames, " ")
+}
+
+func getVariantClass(v Variant) string {
+	primary := "bg-yellow-400 hover:bg-yellow-200"
+	switch v {
+	case Secondary:
+		return "bg-white hover:bg-gray-200"
+	default:
+		return primary
+	}
+}
+
+templ Button(props ButtonProps) {
+	<button
+		class={
+			"py-2 px-6 shadow border-2 border-slate-900 font-bold text-slate-900 transition-colors duration-150",
+			focus(),
+			getVariantClass(props.variant),
+		}
+		{ props.attrs... }
+	>
+		{ children... }
+	</button>
+}
